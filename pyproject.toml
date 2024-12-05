@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "semantic-manifolds"
+version = "0.1.0"
+description = "Code for the paper Semantic Manifolds in Sentence Embedding Models"
+authors = ["matthieu-perso <matthieu.moullec.perso@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+torch = "^2.5.1"
+scikit-learn = "^1.5.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
