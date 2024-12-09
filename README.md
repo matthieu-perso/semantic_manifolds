@@ -9,9 +9,14 @@ First, ensure you have [Poetry](https://python-poetry.org/docs/#installation) in
 
 ## Reproducing the results
 
-The Jupyter notebooks are the easiest way to reproduce the code and explore the project.
+The Jupyter notebooks are the easiest way to reproduce the code and explore the project. The underlying machinery can be found in the `src` folder and imported in the notebook.
 
 You can run the code with different models by changing the model name in the `config.yaml` file.
+
+## Notebooks
+
+- `1_existence.ipynb`: for testing the existence of the manifold and the boundary
+- `2_structure.ipynb`: for testing manifold combinations
 
 ## Files
 

@@ -22,6 +22,15 @@ def apply_isomap(embeddings, n_components=10):
     isomap = Isomap(n_components=n_components)
     return isomap.fit_transform(embeddings)
 
+
+def apply_pga(embeddings, n_components=10):
+    """Principal Geodesic Analysis
+    
+    Core intuition: https://towardsdatascience.com/principal-geodesic-analysis-2ec7ad1b2679
+    """
+
+
+
 def calculate_reconstruction_error(original_embeddings, reduced_embeddings):
     nbrs = NearestNeighbors(n_neighbors=1).fit(reduced_embeddings)
     distances, indices = nbrs.kneighbors(reduced_embeddings)
@@ -29,6 +38,10 @@ def calculate_reconstruction_error(original_embeddings, reduced_embeddings):
     reconstruction_error = mean_squared_error(original_embeddings, reconstructed_embeddings)
     print(f"Isomap Reconstruction Error: {reconstruction_error:.4f}")
     return reconstruction_error
+
+
+
+
 
 if __name__ == "__main__":
     embeddings = np.load("embeddings.pickle")

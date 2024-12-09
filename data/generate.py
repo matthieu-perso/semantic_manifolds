@@ -1,6 +1,6 @@
 import nltk
 from nltk.corpus import wordnet as wn
-from data.embed import get_embeddings
+from data.embed import get_embeddings_openai, get_embeddings_sentence_transformer
 
 nltk.download('wordnet')
 
@@ -58,10 +58,14 @@ def create_sentence(word):
     article = 'an' if word[0].lower() in 'aeiou' else 'a'
     return f"Someone has {article} {word}"
 
-def main(words):
+def main(words, model="sentence_transformer"):
     hyponym_generator = HyponymGenerator(words)
     print(len(hyponym_generator.sentences_list))
-    embeddings = get_embeddings(hyponym_generator.sentences_list)
+    print(hyponym_generator.sentences_list)
+    if model == "openai":
+        embeddings = get_embeddings_openai(hyponym_generator.sentences_list)
+    else:
+        embeddings = get_embeddings_sentence_transformer(hyponym_generator.sentences_list)
     print(len(embeddings))
     return embeddings
 
